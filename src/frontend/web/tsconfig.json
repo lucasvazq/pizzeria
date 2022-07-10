@@ -1,0 +1,67 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "incremental": true,
+    "paths": {
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@layout/*": [
+        "./src/components/layout/*"
+      ],
+      "@pizzas/*": [
+        "./src/components/pizzas/*"
+      ],
+      "@login/*": [
+        "./src/components/login/*"
+      ],
+      "@register/*": [
+        "./src/components/register/*"
+      ],
+      "@svg/*": [
+        "./src/components/svg/*"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ],
+      "@styles": [
+        "./src/styles/base.scss"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+    }
+  },
+  "include": [
+    ".d.ts",
+    "global.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,10 @@
+# Editor
+.vscode
+
+# Python.
+.venv
+
+# Javascript.
+.next
+next.config.mjs
+node_modules

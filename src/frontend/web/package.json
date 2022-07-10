@@ -1,0 +1,258 @@
+{
+  "license": "MIT",
+  "engines": {
+    "node": ">=17"
+  },
+  "scripts": {
+    "dev": "yarn run prebuild && next dev -p 8000",
+    "prebuild": "swc ./next.config.ts -o ./next.config.mjs -C module.type=es6 -C sourceMaps=inline",
+    "build": "del-cli ./.next && next build",
+    "start": "next start -p 8000",
+    "lint": "yarn run lint:prettier && yarn run lint:eslint && yarn run lint:stylelint",
+    "lint:prettier": "prettier -w \"**/*.{js,ts,tsx}\"",
+    "lint:eslint": "eslint . --fix --ext .js,.ts,.tsx --max-warnings=0",
+    "lint:stylelint": "stylelint **/*.scss --fix"
+  },
+  "dependencies": {
+    "cookie-cutter": "0.2.0",
+    "cookies": "0.8.0",
+    "next": "12.1.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.17.5",
+    "@babel/eslint-parser": "7.17.0",
+    "@swc/cli": "0.1.56",
+    "@swc/core": "1.2.159",
+    "@types/cookies": "0.7.7",
+    "@types/react": "18.0.1",
+    "@typescript-eslint/eslint-plugin": "5.14.0",
+    "@typescript-eslint/parser": "5.16.0",
+    "autoprefixer": "10.4.2",
+    "cross-env": "7.0.3",
+    "cssnano": "5.1.5",
+    "daisyui": "2.6.3",
+    "del-cli": "4.0.1",
+    "eslint": "8.10.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "16.1.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-tsdoc": "0.2.14",
+    "node-sass": "7.0.1",
+    "node-sass-json-importer": "4.3.0",
+    "postcss": "8.4.12",
+    "postcss-import": "14.0.2",
+    "postcss-preset-env": "7.4.3",
+    "prettier": "2.5.1",
+    "sass": "1.48.0",
+    "stylelint": "14.6.1",
+    "stylelint-config-standard-scss": "3.0.0",
+    "tailwindcss": "3.0.23",
+    "typescript": "4.6.2",
+    "webpack": "5.70.0"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "eslintConfig": {
+    "ignorePatterns": [
+      "*.mjs"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts",
+          "**/*.tsx"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+          "eslint-plugin-tsdoc"
+        ],
+        "extends": [
+          "airbnb",
+          "airbnb/hooks",
+          "airbnb-typescript",
+          "eslint:recommended",
+          "plugin:eslint-comments/recommended",
+          "plugin:@typescript-eslint/recommended",
+          "plugin:@typescript-eslint/recommended-requiring-type-checking",
+          "next/core-web-vitals",
+          "prettier"
+        ],
+        "parserOptions": {
+          "ecmaFeatures": {
+            "jsx": true
+          },
+          "project": [
+            "./tsconfig.json"
+          ]
+        },
+        "rules": {
+          "@typescript-eslint/no-unused-vars": [
+            "error"
+          ],
+          "import/no-extraneous-dependencies": [
+            "error",
+            {
+              "devDependencies": true
+            }
+          ],
+          "import/no-unused-modules": [
+            "error",
+            {
+              "missingExports": true,
+              "unusedExports": true,
+              "ignoreExports": [
+                "src/pages",
+                "*.d.ts"
+              ]
+            }
+          ],
+          "import/order": [
+            "error",
+            {
+              "pathGroups": [
+                {
+                  "pattern": "@contexts/**",
+                  "group": "parent",
+                  "position": "before"
+                },
+                {
+                  "pattern": "@layout/**",
+                  "group": "parent",
+                  "position": "before"
+                },
+                {
+                  "pattern": "@pizzas/**",
+                  "group": "parent",
+                  "position": "before"
+                },
+                {
+                  "pattern": "@login/**",
+                  "group": "parent",
+                  "position": "before"
+                },
+                {
+                  "pattern": "@register/**",
+                  "group": "parent",
+                  "position": "before"
+                },
+                {
+                  "pattern": "@svg/**",
+                  "group": "parent",
+                  "position": "after"
+                },
+                {
+                  "pattern": "@api/**",
+                  "group": "parent",
+                  "position": "after"
+                },
+                {
+                  "pattern": "@styles/**",
+                  "group": "parent",
+                  "position": "after"
+                },
+                {
+                  "pattern": "@utils/**",
+                  "group": "parent",
+                  "position": "after"
+                }
+              ],
+              "pathGroupsExcludedImportTypes": [
+                "builtin"
+              ],
+              "alphabetize": {
+                "order": "asc"
+              },
+              "newlines-between": "always"
+            }
+          ],
+          "jsx-a11y/accessible-emoji": "error",
+          "jsx-a11y/label-has-associated-control": "off",
+          "no-console": "off",
+          "react/react-in-jsx-scope": "off",
+          "react/require-default-props": "off",
+          "tsdoc/syntax": "error"
+        }
+      },
+      {
+        "files": [
+          "**/*.js"
+        ],
+        "parser": "@babel/eslint-parser",
+        "env": {
+          "browser": true,
+          "node": true,
+          "es2021": true
+        },
+        "extends": [
+          "airbnb",
+          "eslint:recommended",
+          "next/core-web-vitals",
+          "prettier"
+        ],
+        "parserOptions": {
+          "ecmaVersion": "latest",
+          "sourceType": "module"
+        },
+        "rules": {
+          "no-unused-vars": [
+            "error"
+          ],
+          "import/no-extraneous-dependencies": [
+            "error",
+            {
+              "devDependencies": true
+            }
+          ],
+          "import/order": [
+            "error",
+            {
+              "pathGroupsExcludedImportTypes": [
+                "builtin"
+              ],
+              "alphabetize": {
+                "order": "asc"
+              },
+              "newlines-between": "always"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard-scss"
+    ],
+    "rules": {
+      "scss/at-rule-no-unknown": [
+        true,
+        {
+          "ignoreAtRules": [
+            "tailwind",
+            "apply",
+            "layer"
+          ]
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "proseWrap": "always",
+    "semi": false
+  },
+  "postcss": {
+    "plugins": [
+      "postcss-import",
+      "tailwindcss",
+      "postcss-preset-env",
+      "autoprefixer",
+      "cssnano"
+    ]
+  }
+}

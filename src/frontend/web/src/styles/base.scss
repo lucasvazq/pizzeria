@@ -1,0 +1,49 @@
+@use "sass:color";
+@use "sass:map";
+@use "sass:meta";
+@import "styles.js"; // stylelint-disable-line scss/at-import-partial-extension
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  // Custom.
+  --separator: 1rem;
+  --separator-small: calc(var(--separator) * 0.5);
+  --separator-big: calc(var(--separator) * 1.5);
+  --separator-big-double: calc(var(--separator-big) * 2);
+
+  // DaisyUI.
+  --animation-btn: 0.25s;
+  --animation-input: 0.2s;
+  --btn-text-case: unset;
+  --btn-focus-scale: 0.95;
+  --border-btn: 1px;
+  --border-color: map.get($colors, base-300);
+  --rounded-box: var(--separator-small);
+  --rounded-btn: var(--separator-small);
+  --rounded-badge: var(--separator);
+  --tab-border: 1px;
+  --tab-radius: var(--separator-small);
+  --navbar-padding: var(--separator-big);
+}
+
+@layer utilities {
+  .break-word {
+    @apply break-words;
+
+    word-break: break-word;
+  }
+
+  .font-primary {
+    /* stylelint-disable font-family-no-missing-generic-family-keyword */
+    @apply font-sans;
+
+    font-family: "Encode Sans";
+    /* stylelint-enable font-family-no-missing-generic-family-keyword */
+
+    &-bold {
+      @apply font-semibold;
+    }
+  }
+}

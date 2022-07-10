@@ -1,0 +1,34 @@
+{
+    "name": "Main",
+    "remoteUser": "src",
+    "dockerComposeFile": "./docker-compose.yml",
+    "service": "src",
+    "workspaceFolder": "/workspace/src",
+    "shutdownAction": "stopCompose",
+    "extensions": [
+        "alefragnani.numbered-bookmarks",
+        "christian-kohler.path-intellisense",
+        "github.copilot",
+        "mhutchie.git-graph",
+        "ms-vsliveshare.vsliveshare",
+        "usernamehw.errorlens",
+        "usernamehw.highlight-logical-line",
+        "visualstudioexptteam.vscodeintellicode",
+        "waderyan.gitblame",
+
+        // Python.
+        "bungcip.better-toml",
+        "magicstack.magicpython",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "sourcery.sourcery",
+
+        // JavaScript.
+        "bradlc.vscode-tailwindcss",
+        "dbaeumer.vscode-eslint",
+        "heybourn.headwind",
+        "ms-vscode.vscode-typescript-next",
+        "syler.sass-indented",
+        "wix.vscode-import-cost"
+    ]
+}

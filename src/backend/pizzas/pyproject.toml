@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pizzas"
+version = "0.1.0"
+description = ""
+authors = ["lucasvazq <lucas5zvazquez@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.10.5"
+fastapi = "0.78.0"
+SQLAlchemy = "1.4.39"
+bcrypt = "3.2.2"
+uvicorn = {version = "0.18.2", extras = ["standard"]}
+pydantic = {version = "1.9.1", extras = ["email"]}
+python-jose = {version = "3.3.0", extras = ["cryptography"]}
+psycopg2 = "2.9.3"
+
+[tool.poetry.dev-dependencies]
+ipython = "8.4.0"
+pytest = "7.1.2"
+requests = "2.28.1"
+
+[build-system]
+requires = ["poetry-core==1.0.0"]
+build-backend = "poetry.core.masonry.api"
